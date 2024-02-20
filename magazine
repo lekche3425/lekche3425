@@ -1,0 +1,60 @@
+public class Magazine {
+    private String title;
+    private int noOfPages;
+    private String material;
+
+    // Normal constructor with parameters
+    public Magazine(String title, int noOfPages, String material) {
+        this.title = title;
+        this.noOfPages = noOfPages;
+        this.material = material;
+    }
+
+    // Constructor without parameters
+    public Magazine() {
+        this.title = "";
+        this.noOfPages = 0;
+        this.material = "";
+    }
+
+    // Getter for title
+    public String getTitle() {
+        return title;
+    }
+
+    // Getter for noOfPages
+    public int getNoOfPages() {
+        return noOfPages;
+    }
+
+    // Getter for material
+    public String getMaterial() {
+        return material;
+    }
+
+    // Setter for all data members
+    public void setMagazine(String title, int noOfPages, String material) {
+        this.title = title;
+        this.noOfPages = noOfPages;
+        this.material = material;
+    }
+
+    // Method to calculate cost
+    public double calcCost() {
+        double costOfHardCover;
+        if (material.equalsIgnoreCase("plastic")) {
+            costOfHardCover = 4.80;
+        } else if (material.equalsIgnoreCase("wood")) {
+            costOfHardCover = 5.50;
+        } else {
+            costOfHardCover = 0; // Default to 0 if material is not recognized
+        }
+        double costOfPlainPaper = 0.08;
+        return (noOfPages * costOfPlainPaper) + (1.5 * costOfHardCover);
+    }
+
+    // toString method to display all information about the magazine object
+    public String toString() {
+        return "Title: " + title + "\nNumber of Pages: " + noOfPages + "\nMaterial: " + material;
+    }
+}
